@@ -10,7 +10,7 @@ public class D01_driverMethods {
 
         WebDriver driver= new ChromeDriver();
 
-        // driver objesi olusturunca Selenium webDriver
+        // Driver objesi olusturunca Selenium webDriver
         // Bilgisayarimizdaki chrome browser'dan bir bos sayfa actirir
         // Eger firefox veya safari gibi baska bir browser kullanmak istersek
         // Selenium sitesinden o browser'in WebDriver'ini indirip projemize eklememiz gerekir
