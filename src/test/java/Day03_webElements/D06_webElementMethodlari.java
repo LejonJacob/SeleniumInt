@@ -36,7 +36,7 @@ public class D06_webElementMethodlari {
         System.out.println(aramaKutusu.isEnabled()); // true
         aramaKutusu.isSelected();
 
-
+        driver.close();
 
 
     }
