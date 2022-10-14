@@ -20,40 +20,51 @@ public class D01_xPath {
 
 
 
-        // 1- https://the-internet.herokuapp.com/add_remove_elements/ adresine gidin
+        /*
+
+          Su ana kadar ogrendigimiz 6 adet locator HTML koduna baglidir
+          xpath ve cssSelector sadece bir attribute'e veya tag'e bagimli olmadan
+          her web elementi locate etmemize yarar
+          her HTML element'de
+          1- tag
+          2- attribute(s)
+          3- attribute value
+          xpath ve cssselector bu 3 maddenin kombinasyonu ile olusur
+
+          //tagIsmi[@attributeIsmi="value"]
+
+         */
+
+        //1- https://the-internet.herokuapp.com/add_remove_elements/ adresine gidin
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
 
-        // 2- Add Element butonuna basin
-
+        //2- Add Element butonuna basin
         WebElement addButonu= driver.findElement(By.xpath("//button[@onclick='addElement()']"));
-        Thread.sleep(1000);
         addButonu.click();
 
-        // 3- Delete butonu’nun gorunur oldugunu test edin
-        WebElement delateButonu= driver.findElement(By.xpath("//button[@onclick=\"deleteElement()\"]"));
+        //3- Delete butonu’nun gorunur oldugunu test edin
+        WebElement deleteButonu= driver.findElement(By.xpath("//button[@onclick='deleteElement()']"));
 
-        if (delateButonu.isDisplayed()){
-            System.out.println("Delate Butonu Görünme Testi PASSED");
-        }else {
-            System.out.println("Delate Butonu Görünmüyor, Test FAILED");
+        if (deleteButonu.isDisplayed()){
+            System.out.println("Delete butonu gorunme testi PASSED");
+        }else{
+            System.out.println("Delete butonu gorunmuyor, test FAILED");
         }
-        Thread.sleep(5000);
 
-        // 4- Delete tusuna basin
-        delateButonu.click();
+        //4- Delete tusuna basin
+        deleteButonu.click();
 
-        // 5- “Add/Remove Elements” yazisinin görünür oldugunu test edin
-        if (addButonu.isDisplayed()){
-            System.out.println("Add Butonu Görünme Testi PASSED");
+        //5- “Add/Remove Elements” yazisinin gorunur oldugunu test edin
+        WebElement addRemoveYaziElementi= driver.findElement(By.xpath("//h3"));
+
+        // driver.findElement(By.tagName("h3"));
+        if (addRemoveYaziElementi.isDisplayed()){
+            System.out.println("Add Remove yazisi gorunuyor, test PASSED");
         }else {
-            System.out.println("Add Butonu Görünmüyor, Test FAILED");
+            System.out.println("Add Remove yazisi gorunmuyor, test FAILED");
         }
-        Thread.sleep(4000);
-
-
+        Thread.sleep(3000);
         driver.close();
-
-
 
     }
 }
